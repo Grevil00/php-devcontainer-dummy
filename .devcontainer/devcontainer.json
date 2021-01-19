@@ -1,0 +1,47 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/php-mariadb
+// Update the VARIANT arg in docker-compose.yml to pick a PHP version: 7, 7.3, 7.4 
+{
+	"name": "PHP",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "phpdev",
+	"workspaceFolder": "/workspace",
+	
+	// Set *default* container specific settings.json values on container create.
+	"settings": { 
+		"intelephense.files.exclude": [	//more specific excludes so Tests should be recognized
+			"**/.git/**",
+			"**/.svn/**",
+			"**/.hg/**",
+			"**/CVS/**",
+			"**/.DS_Store/**",
+			"**/node_modules/**",
+			"**/bower_components/**",
+			"**/vendor/**/{Test,test,Tests,tests}/**/*Test.php"
+		  ],
+		"editor.quickSuggestions": { "comments": true },
+		"php.suggest.basic": false,	//disable basic php suggests for better Intelephense Suggestions
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"php-cs-fixer.rules": "@PhpCsFixer",	//Integrate PHPCSFixer
+		"editor.formatOnSaveTimeout": 5000,	//Anti Linting Save Refuse
+		"emmet.includeLanguages": { "twig": "html" }	//Emmet Suggestions for Twig files
+	},
+
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"mblode.twig-language-2",
+		"felixfbecker.php-debug",
+		"mrmlnc.vscode-apache",
+		"bmewburn.vscode-intelephense-client",
+		"phproberto.vscode-php-getters-setters"
+	],
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [8080,9000],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
+}
