@@ -19,12 +19,17 @@
 			"**/bower_components/**",
 			"**/vendor/**/{Test,test,Tests,tests}/**/*Test.php"
 		  ],
+		"intelephense.environment.shortOpenTag": true,
 		"editor.quickSuggestions": { "comments": true },
-		"php.suggest.basic": false,	//disable basic php suggests for better Intelephense Suggestions
+		"php.suggest.basic": false,		//disable basic php suggests for better Intelephense Suggestions
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"php-cs-fixer.rules": "@PhpCsFixer",	//Integrate PHPCSFixer
-		"editor.formatOnSaveTimeout": 5000,	//Anti Linting Save Refuse
-		"emmet.includeLanguages": { "twig": "html" }	//Emmet Suggestions for Twig files
+		"editor.formatOnSaveTimeout": 5000,		//Anti Linting Save Refuse
+		"emmet.includeLanguages": { "twig": "html" },	//Emmet Suggestions for Twig files 
+		"emptyIndent.removeIndent": true,	//Automatically remove indentation in empty lines on save
+		"emptyIndent.highlightIndent": false,	//Highlight indent on empty lines
+		"emptyIndent.highlightColor": "rgba(246,36,89,0.6)",	//Highlight indent color
+		"emptyIndent.exclude": [".md"]	//Excluded file types
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
@@ -33,7 +38,11 @@
 		"felixfbecker.php-debug",
 		"mrmlnc.vscode-apache",
 		"bmewburn.vscode-intelephense-client",
-		"phproberto.vscode-php-getters-setters"
+		"phproberto.vscode-php-getters-setters",
+		"mehedidracula.php-namespace-resolver",
+		"neilbrayfield.php-docblocker",
+		//"shevaua.phpcs", 			needs php code-sniffer
+		//"junstyle.php-cs-fixer"	needs php code sniffer
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
