@@ -1,10 +1,10 @@
 version: '3'
 
-services: 
+services:
   phpdev:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: php.Dockerfile
       args:
         # [Choice] PHP version: 7, 7.4, 7.3
         VARIANT: "7.4"
