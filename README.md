@@ -1,4 +1,4 @@
-This Project tries to create a PHP-Developement Environment in a Container with integrated Best Practise Modules for VSCode.
+This Project tries to create a PHP-Development Environment in a Container with integrated Best Practise Modules for VSCode.
 
 It is derived from the Official VSCode PHP DevContainer, see https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/php
 
