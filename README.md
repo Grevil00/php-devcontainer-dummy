@@ -1,5 +1,5 @@
 This Project tries to create a PHP-Developement Environment in a Container with integrated Best Practise Modules for VSCode.
-It is derived from the Official VSCode PHP DevContainer, see https://github.com/microsoft/vscode-dev-containers/blob/v0.154.2/containers/php/.devcontainer/base.Dockerfile
+It is derived from the Official VSCode PHP DevContainer, see https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/php
 
 Prerequisites:
 -You need to have VSCode installed on your machine locally
