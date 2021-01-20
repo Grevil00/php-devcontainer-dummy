@@ -8,7 +8,8 @@
 	"settings": {
 
 		/*--------------------------------------------------PHP Specific Settings--------------------------------------------------*/
-
+		"emmet.showAbbreviationSuggestions": false,
+		"emmet.showExpandedAbbreviation": "never",
 		"intelephense.files.exclude": [ //more specific excludes so Tests should be recognized
 			"**/.git/**",
 			"**/.svn/**",
@@ -69,9 +70,6 @@
 			"*.info": "ini",
 			"*.html": "twig",
 		},
-		"emmet.includeLanguages": {
-			"twig": "html"
-		}, //Emmet Suggestions for Twig files
 		"files.trimTrailingWhitespace": true,
 		"files.insertFinalNewline": true,
 		"html.format.enable": true,
