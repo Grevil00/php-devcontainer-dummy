@@ -1,38 +1,14 @@
 {
   "version": "0.2.0",
   "configurations": [
+
     {
       "name": "Launch current script",
       "type": "php",
       "request": "launch",
       "program": "${file}",
       "cwd": "${fileDirname}",
-      "port": 9000
+      "port": 8080,
     },
-    {
-      "name": "xdebug",
-      "type": "php",
-      "request": "launch",
-      "port": 9000,
-      "log": true,
-      "pathMappings": {
-        "/app/": "${workspaceFolder}/",
-      }
-    },
-    {
-      "name": "phpunit",
-      "type": "php",
-      "request": "launch",
-      "port": 9001,
-    }
-  ],
-  "compounds": [
-    {
-      "name": "PhP",
-      "configurations": [
-        "xdebug",
-        "phpunit"
-      ]
-    }
   ]
 }
