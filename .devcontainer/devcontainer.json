@@ -1,8 +1,6 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/php-mariadb
-// Update the VARIANT arg in docker-compose.yml to pick a PHP version: 7, 7.3, 7.4 
+// Update the VARIANT arg in docker-compose.yml to pick a PHP version: 7, 7.3, 7.4
 {
-	"name": "PHP",
+	"name": "PHP-Drupal-DevContainer",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "phpdev",
 	"workspaceFolder": "/workspace",
@@ -21,17 +19,19 @@
 			"**/bower_components/**",
 			"**/vendor/**/{Test,test,Tests,tests}/**/*Test.php"
 		],
-		
 		"intelephense.environment.shortOpenTag": true,
+		"editor.wordSeparators": "`~!@#%^&*()-=+[{]}\\|;:'\",.<>/?",
 		"php-docblocker.gap": true,
 		"php-docblocker.useShortNames": true,
 		"editor.quickSuggestions": {
 			"comments": true
 		},
+		"javascript.validate.enable": false,
+		"javascript.format.enable": false,
 		"php.suggest.basic": false, //disable basic php suggests for better Intelephense Suggestions
 		"terminal.integrated.shell.linux": "/bin/bash",
-		"php-cs-fixer.rules": "@PhpCsFixer", //Integrate PHPCSFixer
-		"editor.formatOnSaveTimeout": 5000, //Anti Linting Save Refuse 
+		//"php-cs-fixer.rules": "@PhpCsFixer", needs cs!
+		"editor.formatOnSaveTimeout": 5000, //Anti Linting Save Refuse
 		"emptyIndent.removeIndent": true, //Automatically remove indentation in empty lines on save
 		"emptyIndent.highlightIndent": false, //Highlight indent on empty lines
 		"emptyIndent.highlightColor": "rgba(246,36,89,0.6)", //Highlight indent color
@@ -46,7 +46,6 @@
 		/*--------------------------------------------------Drupal Specific Settings--------------------------------------------------*/
 
 		"breadcrumbs.enabled": true,
-		"css.validate": true,
 		"diffEditor.ignoreTrimWhitespace": false,
 		"editor.tabSize": 2,
 		"editor.insertSpaces": true,
@@ -56,9 +55,9 @@
 		"editor.wordWrapColumn": 80,
 		"editor.wordWrap": "off",
 		"editor.detectIndentation": true,
-		"editor.rulers": [
-			80
-		],
+		"html.suggest.html5": true,
+		"css.validate": true,
+		//"editor.rulers": [ 80],
 		"files.associations": {
 			"*.inc": "php",
 			"*.module": "php",
@@ -107,6 +106,7 @@
 
 		//"juniormucciolo.drupal-7-snippets",
 		//"pauloamgomes.drupal7-hooks-snippets",
+
 	],
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
@@ -115,6 +115,5 @@
 	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
-	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"
 }
