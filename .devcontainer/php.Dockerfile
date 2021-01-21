@@ -1,17 +1,13 @@
-# See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.154.2/containers/php/.devcontainer/base.Dockerfile
+FROM php:7.4-cli
 
-# [Choice] PHP version: 7, 7.4, 7.3 Update in Docker-Compose
-ARG VARIANT="7"
-FROM mcr.microsoft.com/vscode/devcontainers/php:0-${VARIANT}
+#Install xdebug and modify it accordingly for use in Drupal
+RUN pecl install xdebug-3.0.1 \
+    && docker-php-ext-enable xdebug \
+    && echo "xdebug.mode = debug" >>  /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.start_with_request = yes" >>  /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.client_port = 9000" >>  /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-# [Option] Install Node.js
-ARG INSTALL_NODE="true"
-ARG NODE_VERSION="lts/*"
-RUN if [ "${INSTALL_NODE}" = "true" ]; then su vscode -c "umask 0002 && . /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSION} 2>&1"; fi
-
-# [Optional] Uncomment this section to install additional OS packages. DOES NOT WORK WITH CODE SNIFFER!
-#RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#    && apt-get -y install php-codesniffer
-
-# [Optional] Uncomment this line to install global node packages.
-# RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
+#Install phpcs TODO!!
+#RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar > /usr/local/bin/phpcs \
+#    && curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcbf.phar > /usr/local/bin/phpcs \
+#    && chmod +x /usr/local/bin/phpcs
