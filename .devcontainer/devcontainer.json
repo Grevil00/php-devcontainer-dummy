@@ -52,23 +52,24 @@
 			"*.php": "php",
 			"*.info": "ini",
 		},
-		// Add the IDs of extensions you want installed when the container is created.
-		"extensions": [
-			"felixfbecker.php-debug",
-			"mrmlnc.vscode-apache",
-			"bmewburn.vscode-intelephense-client",
-			"phproberto.vscode-php-getters-setters",
-			"mehedidracula.php-namespace-resolver",
-			"neilbrayfield.php-docblocker",
-			//"shevaua.phpcs",
-			//"junstyle.php-cs-fixer",
-		],
-		// Use 'forwardPorts' to make a list of ports inside the container available locally.
-		"forwardPorts": [
-			8080,
-			9000
-		],
-		// Use 'postCreateCommand' to run commands after the container is created.
-		// "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
-		//"remoteUser": "vscode"
-	}
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"felixfbecker.php-debug",
+		"mrmlnc.vscode-apache",
+		"bmewburn.vscode-intelephense-client",
+		"phproberto.vscode-php-getters-setters",
+		"mehedidracula.php-namespace-resolver",
+		"neilbrayfield.php-docblocker",
+		//"shevaua.phpcs",
+		//"junstyle.php-cs-fixer",
+	],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [
+		8080,
+		9000
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
+	//"remoteUser": "vscode"
+}

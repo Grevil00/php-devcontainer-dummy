@@ -1,5 +1,5 @@
-ARG PHP
-FROM php:7.4-cli
+ARG PHP="7.4-cli"
+FROM php:${PHP} as builder
 
 #Install xdebug and modify it accordingly for use in Drupal
 RUN pecl install xdebug-3.0.1 \
@@ -17,7 +17,7 @@ RUN set -eux \
 		git \
 	&& git clone https://github.com/squizlabs/PHP_CodeSniffer
 
-ARG PHPCS
+ARG PHPCS="latest"
 RUN set -eux \
 	&& cd PHP_CodeSniffer \
 	&& if [ "${PHPCS}" = "latest" ]; then \
@@ -29,12 +29,24 @@ RUN set -eux \
 	&& chmod +x /phpcs.phar \
 	&& mv /phpcs.phar /usr/bin/phpcs
 
+# Install PHP-CS-FIXER
+RUN set -eux \
+	&& git clone https://github.com/FriendsOfPHP/PHP-CS-Fixer
 
-FROM php:${PHP} as production
+ARG PCF="latest"
+RUN set -eux \
+	&& cd PHP-CS-Fixer \
+	&& if [ "${PCF}" = "latest" ]; then \
+	VERSION="$( git tag | sort -V | tail -1 )"; \
+	else \
+	VERSION="$( git tag | grep -E "^v?${PCF}\.[.0-9]+\$" | sort -V | tail -1 )"; \
+	fi \
+	&& curl -sS -L https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/${VERSION}/php-cs-fixer.phar -o /php-cs-fixer \
+	&& chmod +x /php-cs-fixer \
+	&& mv /php-cs-fixer /usr/bin/php-cs-fixer
 
-COPY --from=builder /usr/bin/phpcs /usr/bin/phpcs
-ENV WORKDIR /data
-WORKDIR /data
+# Install composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-ENTRYPOINT ["phpcs"]
-CMD ["--version"]
+# Install PHPUnit
+RUN composer global require phpunit/phpunit ^9.0 --no-progress --no-scripts --no-interaction
