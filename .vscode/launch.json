@@ -1,9 +1,18 @@
 {
   "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "Launch & XDebug",
+      "configurations": [
+        "Launch",
+        "Listen for XDebug"
+      ]
+    },
+  ],
   "configurations": [
 
     {
-      "name": "Launch current script",
+      "name": "Launch",
       "type": "php",
       "request": "launch",
       "program": "${file}",
@@ -11,7 +20,7 @@
       "port": 8080,
     },
     {
-      "name": "Listen for Xdebug",
+      "name": "Listen for XDebug",
       "type": "php",
       "request": "launch",
       "port": 9000,
