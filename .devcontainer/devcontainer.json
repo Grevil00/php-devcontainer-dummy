@@ -6,7 +6,9 @@
 	"workspaceFolder": "/workspace",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
+
 		/*--------------------------------------------------PHP Specific Settings--------------------------------------------------*/
+
 		"emmet.showAbbreviationSuggestions": false,
 		"emmet.showExpandedAbbreviation": "never",
 		"intelephense.files.exclude": [ //more specific excludes so Tests should be recognized
@@ -42,7 +44,9 @@
 		//"phpcs.standard": "Drupal,DrupalPractice",	//phpcs standard
 		//"composer.enabled": true,
 		//"composer.executablePath": "C:\\ProgramData\\ComposerSetup\\bin\\composer.bat",	//not necessary, composer in Docker/Lando
+
 		/*--------------------------------------------------Drupal Specific Settings--------------------------------------------------*/
+
 		"breadcrumbs.enabled": true,
 		"diffEditor.ignoreTrimWhitespace": false,
 		"editor.tabSize": 2,
@@ -74,10 +78,19 @@
 		"html.format.enable": true,
 		"html.format.wrapLineLength": 80,
 		"telemetry.enableTelemetry": false,
+		"emmet.includeLanguages": {
+			"twig": "html"
+		},
+		"html.validate.scripts": false,
+		"html.validate.styles": false,
 	},
+
+
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
+
 		/*--------------------------------------------------PHP Specific Extensions--------------------------------------------------*/
+
 		"felixfbecker.php-debug",
 		"mrmlnc.vscode-apache",
 		"bmewburn.vscode-intelephense-client",
@@ -86,13 +99,17 @@
 		"neilbrayfield.php-docblocker",
 		//"shevaua.phpcs", 			needs php code-sniffer
 		//"junstyle.php-cs-fixer"	needs php code sniffer
+
 		/*--------------------------------------------------Drupal 8 Specific Extensions--------------------------------------------------*/
+
 		"ikappas.composer",
-		"mblode.twig-language-2",
 		"dssiqueira.drupal-8-snippets",
 		"tsega.drupal-8-javascript-snippets",
 		"tsega.drupal-8-twig-snippets",
+		"mblode.twig-language",	//Switch to "mblode.twig-language-2" if necessary
+
 		/*--------------------------------------------------Drupal 7 Specific Extension--------------------------------------------------*/
+
 		//"juniormucciolo.drupal-7-snippets",
 		//"pauloamgomes.drupal7-hooks-snippets",
 	],
