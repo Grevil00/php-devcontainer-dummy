@@ -15,5 +15,14 @@
       "request": "launch",
       "port": 9000
     }
+  ],
+  "compounds": [
+    {
+      "name": "Start Debug",
+      "configurations": [
+        "Listen for Xdebug",
+        "Launch current script"
+      ]
+    }
   ]
 }
