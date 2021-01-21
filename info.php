@@ -1,7 +1,15 @@
 <?php
-echo "Hello World";
 
-echo "Kallo";
+echo "Hello World";
+$num = 0;
+echo "Step " + $num;
+$num++;
+echo "Step " + $num;
+$num++;
+echo "Step " + $num;
+
+// Print xdebug info:
+xdebug_info();
+
+// Print php info:
 phpinfo();
-$num = 1;
-$num = 3;
